@@ -47,12 +47,16 @@ class VagonPasajeros {
 	method banos() {return banos}
 	
 	method setBanos(hayONo) {banos = hayONo}
+	
+	method ordenar() {ordenado = true}
 }
 
 class VagonCarga {
 	
 	var cargaMaxIdeal = 0
 	var maderasSueltas = 0
+	
+	method cantPasajeros() {return null}
 	
 	method capCarga() {
 		return cargaMaxIdeal - (maderasSueltas * 400)
@@ -70,4 +74,33 @@ class VagonCarga {
 		return 1500 + self.capCarga()
 	}
 	
+	method banos() {return false}
+	
+	method ordenar() {
+		if (maderasSueltas > 2) {
+			maderasSueltas -= 2
+		}
+		else {
+			maderasSueltas = 0
+		}
+	}
+}
+
+class VagonDormitorio {
+	
+	var compartimientos = 0
+	var cantCamas = 0
+	
+	method setCompartimientos(cantidad) {compartimientos = cantidad}
+	method setCantCamas(cantidad) {cantCamas = cantidad}
+	
+	method compartimientos() {return compartimientos}
+	method cantCamas() {return cantCamas}
+	
+	method cantPasajeros() {return cantCamas * compartimientos}
+	method capCarga() {return 1200}
+	method pesoMax() {return 4000 + self.capCarga() + (self.cantPasajeros() * 80)}
+	method banos() {return true}
+	method ordenar() {}
+		
 }
