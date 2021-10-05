@@ -28,4 +28,9 @@ class Formacion {
 	
 	method vagonMenosPasajeros() {return vagones.min( {vagon => vagon.cantPasajeros() } ).cantPasajeros() }
 	
+	method estaOrganizada() {return self.todosTienenPasajeros() or self.ningunoTienePasajeros() }
+	
+	method todosTienenPasajeros() {return vagones.all( {vagon => vagon.cantPasajeros() > 0} ) }
+	
+	method ningunoTienePasajeros() {return vagones.all( {vagon => vagon.cantPasajeros() == 0} ) }
 }

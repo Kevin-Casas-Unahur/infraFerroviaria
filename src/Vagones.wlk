@@ -56,7 +56,7 @@ class VagonCarga {
 	var cargaMaxIdeal = 0
 	var maderasSueltas = 0
 	
-	method cantPasajeros() {return null}
+	method cantPasajeros() {return 0}
 	
 	method capCarga() {
 		return cargaMaxIdeal - (maderasSueltas * 400)
