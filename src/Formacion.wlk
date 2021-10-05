@@ -6,6 +6,8 @@ class Formacion {
 	
 	method agregarVagon(vagon) { vagones.add(vagon) }
 	
+	method quitarVagon(vagon) { vagones.remove(vagon) }
+	
 	method cantMaxPasajeros() {return vagones.sum( {vagon => vagon.cantPasajeros() } ) }
 	
 	method cantVagonesPopulares() {return vagones.count( {vagon => vagon.cantPasajeros() > 50} ) }
